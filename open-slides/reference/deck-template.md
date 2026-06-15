@@ -73,6 +73,7 @@ Pin this engine version: **`reveal.js@5.1.0`**.
       flex-direction: column;
       justify-content: center;
       box-sizing: border-box;
+      text-align: left;     /* undo the engine's global center; see Rules */
     }
 
     /* ===========================================
@@ -150,6 +151,7 @@ Pin this engine version: **`reveal.js@5.1.0`**.
 ## Rules
 
 - **No stock theme.** Load `reset.css` + `reveal.css` only. Do not load `theme/black.css` etc. — they read as generic. All identity is in the inline `<style>`.
+- **Text aligns left by default.** The engine globally sets `.reveal .slides { text-align:center }`. The `.frame` box resets it to `left`. For a centered layout (title slide, full-bleed quote), put `text-align:center` back on that layout's `.frame` variant — don't rely on the engine default.
 - **Canvas is 1920×1080.** Author slide content at that size; the engine scales the whole slide uniformly to the viewport (handles phones too). Do not write responsive breakpoints to reflow slide content.
 - **Fragments for staged reveals.** Use `class="fragment"` on items that should appear on click. Use `data-transition` per `<section>` for slide-change effects. See `motion-recipes.md`. Don't hand-roll a `.visible` system — the engine drives it.
 - **Speaker notes** go in `<aside class="notes">` inside each slide. Press **S** for the presenter view. Keep them out of the visible slide.
