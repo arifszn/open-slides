@@ -21,6 +21,11 @@ Pin this engine version: **`reveal.js@5.1.0`**.
   <!-- Fonts: load a real web-font pair through a Fontshare or Google link; don't fall back to the system stack -->
   <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=<!-- DISPLAY+BODY -->&display=swap" />
 
+  <!-- ONLY for decks with code slides. Load a syntax theme close to the deck palette
+       (atom-one-dark/-light, monokai, github), then restyle the <pre> container below
+       so it reads as part of THIS deck, not a stock widget. Omit entirely if no code. -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css" /> -->
+
   <style>
     /* ===========================================
        THEME — generated per deck. Edit these to restyle everything.
@@ -125,6 +130,22 @@ Pin this engine version: **`reveal.js@5.1.0`**.
         <aside class="notes"><!-- talking points --></aside>
       </section>
 
+      <!-- CODE SLIDE (only when the deck shows code). data-line-numbers steps the
+           highlighted range on each click ("3-5|8|13-15"); steps collapse to one PDF
+           page via pdfSeparateFragments below. data-ln-start-from offsets numbering.
+           For code with < or & or HTML, wrap the body in <script type="text/template">. -->
+      <!--
+      <section>
+        <div class="frame">
+          <h2>Slide title</h2>
+          <pre><code data-trim data-line-numbers="1|3-5" class="language-sql">
+SELECT count() FROM events WHERE ts > now() - INTERVAL 1 DAY
+          </code></pre>
+        </div>
+        <aside class="notes"></aside>
+      </section>
+      -->
+
       <!-- more <section> slides... -->
 
     </div>
@@ -134,6 +155,8 @@ Pin this engine version: **`reveal.js@5.1.0`**.
        PDF export (?print-pdf) is handled by the engine core — no extra print CSS needed. -->
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <!-- ONLY for decks with code slides (pairs with the highlight theme <link> above): -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script> -->
   <script>
     Reveal.initialize({
       width: 1920,
@@ -145,7 +168,7 @@ Pin this engine version: **`reveal.js@5.1.0`**.
       hash: true,
       transition: 'slide',  // per-slide override via data-transition
       pdfSeparateFragments: false, // collapse fragments to one page per slide on ?print-pdf
-      plugins: [ RevealNotes ],
+      plugins: [ RevealNotes ],    // add RevealHighlight here when the deck has code
     });
   </script>
 </body>
@@ -159,6 +182,7 @@ Pin this engine version: **`reveal.js@5.1.0`**.
 - **Canvas is 1920×1080.** Author slide content at that size; the engine scales the whole slide uniformly to the viewport (handles phones too). Do not write responsive breakpoints to reflow slide content.
 - **Fragments for staged reveals.** Use `class="fragment"` on items that should appear on click. Use `data-transition` per `<section>` for slide-change effects. See `motion-recipes.md`. Don't hand-roll a `.visible` system — the engine drives it.
 - **Keep `pdfSeparateFragments: false` in `Reveal.initialize`.** Without it, every fragment step becomes its own page in `?print-pdf` export — a 3-slide deck with fragments balloons to many pages. This collapses each slide to one page.
+- **Code slides** (only when the deck shows code): uncomment the highlight theme `<link>`, the `highlight.js` `<script>`, and add `RevealHighlight` to `plugins`. Mark up as `<pre><code data-trim data-line-numbers="…" class="language-x">`. Step focus across lines with pipe-separated ranges (`"1|3-5|8"`). Then restyle the `<pre>` (background `--bg-alt`, a real monospace face, generous padding, a hairline or accent edge) so it belongs to the theme — never ship raw stock-widget code on an otherwise custom deck.
 - **Speaker notes** go in `<aside class="notes">` inside each slide. Press **S** for the presenter view. Keep them out of the visible slide.
 - **Fonts** come from a Fontshare or Google `<link>`, not the system stack. Fill the Fontshare `f[]` param with the chosen display and body families.
 - **Comments.** Every CSS section and every non-obvious slide gets a clear comment.

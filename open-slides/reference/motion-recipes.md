@@ -50,6 +50,26 @@ The engine adds `.present` to the active slide. Drive entrance animation off it:
 }
 ```
 
+## Code slides (highlight plugin)
+
+For technical decks. Load the highlight plugin + a syntax theme (see `deck-template.md`), then step the highlighted lines like fragments:
+
+```html
+<pre><code data-trim data-line-numbers="1-2|4|6-9" class="language-python">
+def query(client, sql):
+    return client.execute(sql)
+
+rows = query(ch, "SELECT count() FROM events")
+for r in rows:
+    print(r)
+</code></pre>
+```
+
+- Each pipe-separated range (`"1-2|4|6-9"`) is one click step — the focused lines stay lit, the rest dim. Walk a snippet a few lines at a time instead of dumping it all at once.
+- `data-ln-start-from="42"` offsets the first line number; `data-trim` strips outer whitespace; for code containing `<`, `&`, or markup, wrap the body in `<script type="text/template">…</script>`.
+- The line steps are fragments, so `pdfSeparateFragments: false` already collapses them to one page in PDF export.
+- Restyle the `<pre>` to the deck's palette and a real monospace face — don't leave it looking like a stock code widget.
+
 ## Emphasis recipes
 
 - **Counter / stat reveal:** scale + fade a large numeral with `grow` fragment or a CSS keyframe; pair with the accent color.
