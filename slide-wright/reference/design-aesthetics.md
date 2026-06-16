@@ -20,7 +20,7 @@ Give the deck a single visual signature that recurs on most slides — a hairlin
 
 ## Images earn their place
 
-The default identity is type, color, and one CSS device — not stock photography. A generic stock photo drags a deck straight back to the average. Use an image only when the content needs the real thing: a product shot, a chart or diagram, a logo, a genuine photograph that carries meaning. When you do, commit to it — full-bleed background or a deliberately framed block, never a small clip-art decoration floating in a corner. `deck-template.md` has the markup.
+Identity is type, color, and one CSS device — not stock photography, which drags a deck back to the average. Use an image only when the content needs the real thing (a product shot, a chart, a logo), and commit to it — full-bleed or a framed block, never corner clip-art. Markup in `deck-template.md`.
 
 ## Match the room
 
