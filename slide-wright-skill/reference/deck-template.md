@@ -97,6 +97,21 @@ Pin this engine version: **`reveal.js@5.1.0`**.
     /* ... */
 
     /* ===========================================
+       CODE — only for decks with code slides. Restyle freely, but keep this
+       contract or the line-step clones ghost / stair-step / cover the heading.
+       =========================================== */
+    /* .reveal pre {
+         position: relative;   restyle to taste, but keep these two:
+         flex-shrink: 0;       (clones anchor here; don't let a flex frame shrink it)
+       }
+       .reveal pre code.hljs {
+         display: block;                        (inline + bg = one box per line = stairs)
+         background: var(--bg-alt) !important;  (opaque, else stacked clones bleed through)
+         max-height: none;                      (drop reveal's 400px cap = no scroll misalign)
+         padding: 2rem 2.4rem; font-family: var(--font-mono);
+       } */
+
+    /* ===========================================
        MOTION — entrance + emphasis
        =========================================== */
     /* ... */
@@ -130,14 +145,16 @@ Pin this engine version: **`reveal.js@5.1.0`**.
         <aside class="notes"><!-- talking points --></aside>
       </section>
 
-      <!-- CODE SLIDE (only when the deck shows code). Keep it static: one
-           highlighted block, NO pipe-step line numbers. Use data-noescape (or a
-           <script type="text/template"> body) for raw < & in the code. -->
+      <!-- CODE SLIDE (only when the deck shows code). data-line-numbers shows line
+           numbers; pipe-separated ranges ("3-5|8-10") step the highlight on each
+           click. Use data-noescape (or a <script type="text/template"> body) for raw
+           < & in the code. The code-block CSS contract in motion-recipes.md is
+           mandatory when you restyle the block. -->
       <!--
       <section>
         <div class="frame">
           <h2>Slide title</h2>
-          <pre><code data-trim data-noescape class="language-sql">
+          <pre><code data-trim data-noescape data-line-numbers="1|3-5" class="language-sql">
 SELECT count() FROM events WHERE ts > now() - INTERVAL 1 DAY
           </code></pre>
         </div>
@@ -182,7 +199,7 @@ SELECT count() FROM events WHERE ts > now() - INTERVAL 1 DAY
 - **Canvas is 1920×1080.** Author slide content at that size; the engine scales the whole slide uniformly to the viewport (handles phones too). Do not write responsive breakpoints to reflow slide content.
 - **Fragments for staged reveals.** Use `class="fragment"` on items that should appear on click. Use `data-transition` per `<section>` for slide-change effects. See `motion-recipes.md`. Don't hand-roll a `.visible` system — the engine drives it.
 - **Keep `pdfSeparateFragments: false` in `Reveal.initialize`.** Without it, every fragment step becomes its own page in `?print-pdf` export — a 3-slide deck with fragments balloons to many pages. This collapses each slide to one page.
-- **Code slides** (only when the deck shows code): uncomment the highlight theme `<link>`, the `highlight.js` `<script>`, and add `RevealHighlight` to `plugins`. Mark up as a single static block: `<pre><code data-trim data-noescape class="language-x">`. **Do not use pipe-step line numbers** (`data-line-numbers="1|3-5"`) — stepping clones and stacks the code block, which ghosts / escapes the panel / misaligns in a custom layout; show the whole snippet at once. Restyle so it belongs to the theme (never ship raw stock-widget code): put the background on `code.hljs` with `.reveal pre code.hljs { background: var(--bg-alt) !important; }`. Keep snippets short enough to fit the frame (≈ ≤ 12 lines); trim the code rather than shrink the slide. See `motion-recipes.md` for the full recipe.
+- **Code slides** (only when the deck shows code): uncomment the highlight theme `<link>`, the `highlight.js` `<script>`, and add `RevealHighlight` to `plugins`. Mark up as `<pre><code data-trim data-noescape data-line-numbers="3-5|8-10" class="language-x">` — pipe-separated ranges step the highlight on each click (omit `data-line-numbers` for a plain block). Restyle so it belongs to the theme (never ship raw stock-widget code), but the **code-block CSS contract is mandatory**: `position: relative` + `flex-shrink: 0` on `<pre>`, and `display: block` + opaque `background` + `max-height: none` on `code.hljs`. Skipping any one causes the step clones to ghost, stair-step, or cover the heading. Keep snippets short enough to fit the frame (≈ ≤ 12 lines); trim the code rather than shrink the slide. Full recipe in `motion-recipes.md`.
 - **Speaker notes** go in `<aside class="notes">` inside each slide. Press **S** for the presenter view. Keep them out of the visible slide.
 - **Fonts** come from a Fontshare or Google `<link>`, not the system stack. Fill the Fontshare `f[]` param with the chosen display and body families.
 - **Comments.** Every CSS section and every non-obvious slide gets a clear comment.

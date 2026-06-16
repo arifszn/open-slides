@@ -71,10 +71,10 @@ The engine adds `.present` to the active slide. Drive entrance animation off it:
 
 ## Code slides (highlight plugin)
 
-For technical decks. Load the highlight plugin + a syntax theme (see `deck-template.md`). Keep it **static** — one highlighted block, no fragment line-stepping:
+For technical decks. Load the highlight plugin + a syntax theme (see `deck-template.md`). Standard reveal markup:
 
 ```html
-<pre><code data-trim data-noescape class="language-python">
+<pre><code data-trim data-noescape data-line-numbers="3-5|8-10" class="language-python">
 def query(client, sql):
     return client.execute(sql)
 
@@ -84,11 +84,28 @@ for r in rows:
 </code></pre>
 ```
 
-- **Do not use the pipe-step form** (`data-line-numbers="1-2|4|6-9"`). Stepping clones the code block once per step and stacks the clones absolutely; in a custom layout they ghost, escape the panel, or scroll out of alignment. Show the whole snippet at once instead.
-- `data-trim` strips outer whitespace; `data-noescape` lets you keep raw `<`, `&` in the source (or wrap the body in `<script type="text/template">…</script>`).
-- Want line numbers? Add a bare `data-line-numbers` (no pipes) — static numbers, no stepping. Optional.
-- To draw the eye to specific lines, mark them in the source and style them, e.g. `<mark>…</mark>` with a tinted background — no fragments.
-- Restyle the `<pre>` to the deck's palette and a real monospace face so it doesn't look like a stock code widget. Put the background on `code.hljs` (override the syntax theme): `.reveal pre code.hljs { background: var(--bg-alt) !important; }`.
+- `data-trim` strips outer whitespace. `data-noescape` keeps raw `<`, `&` in the source (or wrap the body in `<script type="text/template">…</script>`). `class="language-x"` sets the grammar.
+- `data-line-numbers` shows line numbers. Pipe-separated ranges (`"3-5|8-10|13-15"`) make each range a **fragment step** that lights as you advance — walk the snippet a few lines at a time. `data-ln-start-from="42"` offsets the first number. Steps collapse to one PDF page via `pdfSeparateFragments: false`.
+
+**The code-block CSS contract.** When you restyle `<pre>`/`code.hljs` to fit the theme, the step animation clones and stacks the code block, so these rules are mandatory — skipping any one is what caused the ghosting/stair-stepping/heading-cover bugs:
+
+```css
+.reveal pre {
+  position: relative;   /* clones anchor to <pre>; without it they anchor to the
+                           absolute .frame and balloon to full-slide height */
+  flex-shrink: 0;       /* in a flex frame, don't compress <pre> below the code's
+                           height — that misaligns the clones */
+}
+.reveal pre code.hljs {
+  display: block;       /* inline + a background paints one box per wrapped line = stairs */
+  background: var(--bg-alt) !important;  /* opaque, so the top clone hides the rest
+                                            (transparent clones bleed through = ghosting) */
+  max-height: none;     /* reveal caps code at 400px by default; the cap turns the block
+                           into a scroll viewport and the steps scroll out of alignment */
+}
+```
+
+- Do **not** set `white-space` (`pre-wrap`), `word-break`, or `width` on `pre code` or its `td`s — line numbers render as a `<table>` and these collapse the number column onto the code.
 - Keep the snippet short enough to fit the frame — roughly ≤ 12 lines at a comfortable size. If it doesn't fit, trim the code, don't shrink the slide.
 
 ## Emphasis recipes
