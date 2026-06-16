@@ -18,6 +18,10 @@ Pull a palette from a source with a point of view: editorial print, film stills,
 
 Give the deck a single visual signature that recurs on most slides — a hairline frame, a visible grid, oversized numerals, a recurring color plane, a grain or texture. That repetition is what turns seven separate pages into one designed system.
 
+## Images earn their place
+
+The default identity is type, color, and one CSS device — not stock photography. A generic stock photo drags a deck straight back to the average. Use an image only when the content needs the real thing: a product shot, a chart or diagram, a logo, a genuine photograph that carries meaning. When you do, commit to it — full-bleed background or a deliberately framed block, never a small clip-art decoration floating in a corner. `deck-template.md` has the markup.
+
 ## Match the room
 
 Tune the treatment to the stakes. A board update or a safety briefing should look controlled and sure of itself, not decorated. A community talk or a product launch can be loud and a little strange. Identical content earns a different look depending on who's watching and why.

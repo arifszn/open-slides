@@ -204,3 +204,15 @@ SELECT count() FROM events WHERE ts > now() - INTERVAL 1 DAY
 - **Fonts** come from a Fontshare or Google `<link>`, not the system stack. Fill the Fontshare `f[]` param with the chosen display and body families.
 - **Comments.** Every CSS section and every non-obvious slide gets a clear comment.
 - **Preview vs final:** the same file is both. The preview is this skeleton with two `<section>`s; once approved, the rest of the slides are appended into that same `./<deck-slug>.html`. No separate demo file, no rebuild — the two approved slides stay byte-for-byte.
+
+## Media — images, video, backgrounds
+
+The deck stays one self-contained file. Default identity is CSS, not stock photos (see `design-aesthetics.md`); reach for media only when the content genuinely needs it — a product shot, a chart, a logo, a real photograph.
+
+- **Image, single-file two ways.** Either reference a stable remote URL (`<img src="https://…">` — file stays small, needs network at show time) or inline as a base64 data URI (`<img src="data:image/png;base64,…">` — truly offline, bloats the file). Prefer remote for large/photographic assets, base64 only for small must-be-offline marks like a logo.
+- **Fit, don't overflow.** Give an image `class="r-stretch"` to fill the leftover vertical space under the heading — **one** stretched element per slide, must be a direct child of the `<section>`. Otherwise cap it: `max-width:100%; max-height:70vh; object-fit:contain;` so it never blows past the 1920×1080 frame.
+- **Full-bleed background** per slide via attributes on the `<section>` (the engine paints these in a layer *behind* the slides): `data-background-image="https://…"`, `data-background-color="#111"`, or `data-background-video="https://…" data-background-video-muted data-background-video-loop`. For legibility put text in a `.frame` variant with its own scrim/overlay — don't rely on raw contrast.
+  - **Required, or the background never shows:** the base rule `.reveal .slides section { background: var(--bg); }` paints an opaque fill on the slide that sits *on top of* the engine's background layer. Add a class to that `<section>` (e.g. `media-bg`) and clear the fill: `.reveal .slides section.media-bg { background: transparent; }`. Skip this and the slide renders as the flat `--bg` color with the image loaded but hidden.
+  - The engine **copies the section's class onto its background element**, so a `.media-bg .lab { color: … }` rule also lets you recolor the corner chrome to stay legible over a dark photo.
+- **Video/audio.** `<video data-autoplay data-src="https://…"></video>` — `data-src` lazy-loads near the slide, the engine auto-pauses on slide change. Mute autoplaying video or browsers block it.
+- **Lazy-load** any heavy media with `data-src` instead of `src` so off-screen slides don't fetch it.
