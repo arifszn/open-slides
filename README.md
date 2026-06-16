@@ -51,7 +51,7 @@ Or just tell your agent to install it — paste:
 
 ```
 Fetch and follow the install instructions from
-https://github.com/arifszn/slide-wright-skill/blob/main/INSTALL.md
+https://raw.githubusercontent.com/arifszn/slide-wright-skill/refs/heads/main/INSTALL.md
 ```
 
 ## License
