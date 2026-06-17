@@ -27,7 +27,6 @@ https://github.com/user-attachments/assets/90959d0c-6c2e-4a7a-ab88-4a40a5ba06ac
 
 | Key | Action |
 | --- | --- |
-| Arrow keys / Space | Move between slides |
 | F | Fullscreen |
 | Esc / O | Slide overview |
 | S | Speaker view with notes |
