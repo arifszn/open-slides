@@ -64,6 +64,16 @@ Fetch and follow the install instructions from
 https://raw.githubusercontent.com/arifszn/slide-wright/refs/heads/main/INSTALL.md
 ```
 
+## Usage
+
+After installing, tell your agent what you want:
+
+```
+Make me a slide deck about <your topic>
+```
+
+It builds a theme and a short preview first. Approve it and it generates the full deck. You can hand it rough notes or an outline instead of a topic, and ask it to revise the design or content anytime.
+
 ## License
 
 [MIT](LICENSE)
