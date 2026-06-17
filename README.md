@@ -4,7 +4,7 @@ Generate beautiful, unique slide decks with AI agent skill.
 
 **[View Example →](https://slidewright.surge.sh)**
 
-https://github.com/user-attachments/assets/2c7186ea-44dd-4271-9530-2b581782abde
+https://github.com/user-attachments/assets/f65f338c-076f-417a-b13d-13aed0f0762c
 
 ## How it works
 
