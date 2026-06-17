@@ -1,6 +1,6 @@
 # slide-wright
 
-Generate beautiful, unique slide decks with AI agent skill.
+AI agent skill to generate beautiful, unique slide decks with reveal.js - new design for every prompt.
 
 **[View Example →](https://slidewright.netlify.app)**
 
