@@ -18,48 +18,48 @@ https://github.com/user-attachments/assets/90959d0c-6c2e-4a7a-ab88-4a40a5ba06ac
 <table>
 <tr><th colspan="2"><i>"Generate a presentation for ClickHouse, keep theme yellow"</i></th></tr>
 <tr>
-<td><img src="https://github.com/arifszn/slide-wright/releases/download/assets-v1/clickhouse_1.webp" alt="ClickHouse example slide 1" /></td>
-<td><img src="https://github.com/arifszn/slide-wright/releases/download/assets-v1/clickhouse_2.webp" alt="ClickHouse example slide 2" /></td>
+<td><img src="https://github.com/user-attachments/assets/6237c2c2-fdbf-49bb-a9fa-5f5b10154664" alt="ClickHouse example slide 1" /></td>
+<td><img src="https://github.com/user-attachments/assets/e9208b1f-c813-4a0f-b4ef-b760c011981d" alt="ClickHouse example slide 2" /></td>
 </tr>
 </table>
 
 <table>
 <tr><th colspan="2"><i>"Make me a sales pitch deck for Lumen, a smart home energy monitor"</i></th></tr>
 <tr>
-<td><img src="https://github.com/arifszn/slide-wright/releases/download/assets-v1/sales_1.webp" alt="Sales pitch example slide 1" /></td>
-<td><img src="https://github.com/arifszn/slide-wright/releases/download/assets-v1/sales_2.webp" alt="Sales pitch example slide 2" /></td>
+<td><img src="https://github.com/user-attachments/assets/cd2b8874-2f25-4c2a-89f9-6461a1d7f719" alt="Sales pitch example slide 1" /></td>
+<td><img src="https://github.com/user-attachments/assets/59439144-cb8f-4d44-b63d-4047b39b12b9" alt="Sales pitch example slide 2" /></td>
 </tr>
 </table>
 
 <table>
 <tr><th colspan="2"><i>"Create me a deck for our Q3 revenue review"</i></th></tr>
 <tr>
-<td><img src="https://github.com/arifszn/slide-wright/releases/download/assets-v1/q3_1.webp" alt="Q3 revenue review example slide 1" /></td>
-<td><img src="https://github.com/arifszn/slide-wright/releases/download/assets-v1/q3_2.webp" alt="Q3 revenue review example slide 2" /></td>
+<td><img src="https://github.com/user-attachments/assets/469e720a-92bd-4a2a-af1d-1082f8d0909a" alt="Q3 revenue review example slide 1" /></td>
+<td><img src="https://github.com/user-attachments/assets/1581609f-7dc5-4634-858e-51823b737bca" alt="Q3 revenue review example slide 2" /></td>
 </tr>
 </table>
 
 <table>
 <tr><th colspan="2"><i>"Make me a deck announcing our new feature, keep the design minimal"</i></th></tr>
 <tr>
-<td><img src="https://github.com/arifszn/slide-wright/releases/download/assets-v1/minimal_1.webp" alt="Minimalist example slide 1" /></td>
-<td><img src="https://github.com/arifszn/slide-wright/releases/download/assets-v1/minimal_2.webp" alt="Minimalist example slide 2" /></td>
+<td><img src="https://github.com/user-attachments/assets/917a1147-e17a-4f77-868c-be34be346a61" alt="Minimalist example slide 1" /></td>
+<td><img src="https://github.com/user-attachments/assets/78cda3b5-25b0-49e1-817b-59f346357e5f" alt="Minimalist example slide 2" /></td>
 </tr>
 </table>
 
 <table>
 <tr><th colspan="2"><i>"Create a presentation on MCP with this outline: [outline]"</i></th></tr>
 <tr>
-<td><img src="https://github.com/arifszn/slide-wright/releases/download/assets-v1/mcp_1.webp" alt="MCP example slide 1" /></td>
-<td><img src="https://github.com/arifszn/slide-wright/releases/download/assets-v1/mcp_2.webp" alt="MCP example slide 2" /></td>
+<td><img src="https://github.com/user-attachments/assets/3b22a39f-f3a5-49bd-b48a-e1c0b4e1e244" alt="MCP example slide 1" /></td>
+<td><img src="https://github.com/user-attachments/assets/a02afce3-4abc-4b20-8078-9b93d58f5f48" alt="MCP example slide 2" /></td>
 </tr>
 </table>
 
 <table>
 <tr><th colspan="2"><i>"Make me a deck pitching a Mars colony, keep it futuristic"</i></th></tr>
 <tr>
-<td><img src="https://github.com/arifszn/slide-wright/releases/download/assets-v1/mars_1.webp" alt="Futuristic example slide 1" /></td>
-<td><img src="https://github.com/arifszn/slide-wright/releases/download/assets-v1/mars_2.webp" alt="Futuristic example slide 2" /></td>
+<td><img src="https://github.com/user-attachments/assets/ab8691c2-1216-4b88-b702-9fec97b19a5d" alt="Futuristic example slide 1" /></td>
+<td><img src="https://github.com/user-attachments/assets/2f4275c1-72e1-4cf0-9c34-2e91284e666b" alt="Futuristic example slide 2" /></td>
 </tr>
 </table>
 
