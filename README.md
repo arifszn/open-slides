@@ -49,11 +49,11 @@ https://github.com/user-attachments/assets/90959d0c-6c2e-4a7a-ab88-4a40a5ba06ac
 
 ---
 
-> "Make me a deck for a conference talk on the history of jazz"
+> "Create a presentation on MCP with this outline: [outline]"
 
 | | |
 | --- | --- |
-| ![Jazz history example slide 1](https://github.com/user-attachments/assets/1b8739e4-c41c-462a-8c31-fcf739ca6de4) | ![Jazz history example slide 2](https://github.com/user-attachments/assets/ed9dff97-b4cb-4ca9-a5af-db8c19ea8248) |
+| ![MCP example slide 1](https://github.com/user-attachments/assets/a3c20e18-e71d-4771-a9a9-c16e3b6d70c1) | ![MCP example slide 2](https://github.com/user-attachments/assets/9720c1c8-6394-41a3-92c4-929d4d3e3384) |
 
 ---
 
